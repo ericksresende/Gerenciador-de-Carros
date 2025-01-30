@@ -1,5 +1,12 @@
+package XWZ.Gerenciador.de.Carros.repository;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
+import XWZ.Gerenciador.de.Carros.model.Carro;
+import XWZ.Gerenciador.de.Carros.model.Moto;
 
 @Repository
 public class VeiculoRepository {
@@ -24,7 +31,7 @@ public class VeiculoRepository {
             carro.setId(rs.getInt("id"));
             carro.setModelo(rs.getString("modelo"));
             carro.setFabricante(rs.getString("fabricante"));
-            carro.setAno(rs.getInt("ano"));
+            carro.setId(rs.getInt("ano"));
             carro.setPreco(rs.getDouble("preco"));
             carro.setQuantidadePortas(rs.getInt("quantidade_portas"));
             carro.setTipoCombustivel(rs.getString("tipo_combustivel"));
@@ -39,7 +46,7 @@ public class VeiculoRepository {
             moto.setId(rs.getInt("id"));
             moto.setModelo(rs.getString("modelo"));
             moto.setFabricante(rs.getString("fabricante"));
-            moto.setAno(rs.getInt("ano"));
+            moto.setId(rs.getInt("ano"));
             moto.setPreco(rs.getDouble("preco"));
             moto.setCilindrada(rs.getInt("cilindrada"));
             return moto;

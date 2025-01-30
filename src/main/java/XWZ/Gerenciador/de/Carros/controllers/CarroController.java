@@ -1,3 +1,13 @@
+package XWZ.Gerenciador.de.Carros.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import XWZ.Gerenciador.de.Carros.model.Carro;
+import XWZ.Gerenciador.de.Carros.repository.VeiculoRepository;
+
 @RestController
 @RequestMapping("/carros")
 public class CarroController {
