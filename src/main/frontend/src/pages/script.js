@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <td>${carro.fabricante}</td>
                         <td>${carro.ano}</td>
                         <td>${carro.preco}</td>
+                        <td>${carro.quantidadePortas}</td>
                         <td>${carro.tipoCombustivel}</td>
                         <td>
                             <button class="editarCarro" data-id="${carro.id}">Editar</button>

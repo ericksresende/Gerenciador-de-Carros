@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/carros")
-@CrossOrigin(origins = "http://localhost:5500")
+@CrossOrigin(origins = "*")
 public class CarroController {
 
     @Autowired
@@ -25,7 +25,7 @@ public class CarroController {
 
     @GetMapping("/{id}")
     public Carro getCarro(@PathVariable int id) {
-        return veiculoRepository.buscarCarroPorId(id);  // Chama o método que implementamos
+        return veiculoRepository.buscarCarroPorId(id);
     }
 
     @PostMapping

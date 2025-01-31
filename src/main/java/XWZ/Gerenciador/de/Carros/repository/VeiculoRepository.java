@@ -81,7 +81,6 @@ public class VeiculoRepository {
         jdbcTemplate.update(sql, id);
     }
 
-    // Implementando o método para buscar o carro por ID
     public Carro buscarCarroPorId(int id) {
         String sql = "SELECT * FROM carro WHERE id = ?";
         return jdbcTemplate.queryForObject(sql, new Object[]{id}, (rs, rowNum) -> {
@@ -106,7 +105,7 @@ public class VeiculoRepository {
             moto.setFabricante(rs.getString("fabricante"));
             moto.setAno(rs.getInt("ano"));
             moto.setPreco(rs.getDouble("preco"));
-            moto.setCilindrada(rs.getInt("cilindrada"));  // Aqui se assume que a moto tem o campo 'cilindrada'
+            moto.setCilindrada(rs.getInt("cilindrada"));
             return moto;
         });
     }    
