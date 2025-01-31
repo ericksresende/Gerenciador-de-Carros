@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Veículos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Gerenciador de Veículos</h1>
+    
+    <button id="adicionarCarroBtn">Adicionar Carro</button>
+    <button id="adicionarMotoBtn">Adicionar Moto</button>
+
+    <!-- Formulários para Adicionar e Editar Veículos -->
+    <div id="formularioCarro" style="display:none;">
+        <h2>Adicionar/Editar Carro</h2>
+        <input type="text" id="modeloCarro" placeholder="Modelo">
+        <input type="text" id="fabricanteCarro" placeholder="Fabricante">
+        <input type="number" id="anoCarro" placeholder="Ano">
+        <input type="number" id="precoCarro" placeholder="Preço">
+        <input type="number" id="quantidadePortasCarro" placeholder="Quantidade de Portas">
+        <select id="tipoCombustivelCarro">
+            <option value="gasolina">Gasolina</option>
+            <option value="etanol">Etanol</option>
+            <option value="diesel">Diesel</option>
+            <option value="flex">Flex</option>
+        </select>
+        <button id="salvarCarroBtn">Salvar Carro</button>
+        <button id="cancelarCarroBtn">Cancelar</button>
+    </div>
+
+    <div id="formularioMoto" style="display:none;">
+        <h2>Adicionar/Editar Moto</h2>
+        <input type="text" id="modeloMoto" placeholder="Modelo">
+        <input type="text" id="fabricanteMoto" placeholder="Fabricante">
+        <input type="number" id="anoMoto" placeholder="Ano">
+        <input type="number" id="precoMoto" placeholder="Preço">
+        <input type="number" id="cilindradaMoto" placeholder="Cilindrada">
+        <button id="salvarMotoBtn">Salvar Moto</button>
+        <button id="cancelarMotoBtn">Cancelar</button>
+    </div>
+
+    <!-- Tabelas de Carros e Motos -->
+    <div id="carrosContainer">
+        <h2>Carros</h2>
+        <table id="carrosTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Modelo</th>
+                    <th>Fabricante</th>
+                    <th>Ano</th>
+                    <th>Preço</th>
+                    <th>Combustível</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div id="motosContainer">
+        <h2>Motos</h2>
+        <table id="motosTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Modelo</th>
+                    <th>Fabricante</th>
+                    <th>Ano</th>
+                    <th>Preço</th>
+                    <th>Cilindrada</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

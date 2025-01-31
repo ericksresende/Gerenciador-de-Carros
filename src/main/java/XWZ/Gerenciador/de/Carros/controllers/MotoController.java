@@ -1,21 +1,18 @@
 package XWZ.Gerenciador.de.Carros.controllers;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import XWZ.Gerenciador.de.Carros.model.Moto;
 import XWZ.Gerenciador.de.Carros.repository.VeiculoRepository;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/motos")
+@CrossOrigin(origins = "http://localhost:5500") 
 public class MotoController {
 
     @Autowired
@@ -26,13 +23,26 @@ public class MotoController {
         return veiculoRepository.listarMotos();
     }
 
+    @GetMapping("/{id}")
+    public Moto getMoto(@PathVariable int id) {
+        return veiculoRepository.buscarMotoPorId(id);  // Chama o método que implementamos para buscar uma moto
+    }
+
+
     @PostMapping
-    public void adicionarMoto(@RequestBody Moto moto) {
+    public ResponseEntity<Void> adicionarMoto(@RequestBody Moto moto) {
         veiculoRepository.salvarMoto(moto);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @DeleteMapping("/{id}")
     public void excluirMoto(@PathVariable int id) {
         veiculoRepository.excluirMoto(id);
+    }
+
+    @PutMapping("/{id}")
+    public void editarMoto(@PathVariable int id, @RequestBody Moto moto) {
+        moto.setId(id);
+        veiculoRepository.salvarMoto(moto);
     }
 }

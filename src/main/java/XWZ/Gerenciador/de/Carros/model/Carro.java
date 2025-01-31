@@ -60,4 +60,17 @@ public class Carro extends Veiculo {
     public void setPreco(double preco) {
         super.setPreco(preco);
     }
+
+    @Override
+        public String toString() {
+            return "Carro{" +
+                "id=" + getId() +
+                ", modelo='" + getModelo() + '\'' +
+                ", fabricante='" + getFabricante() + '\'' +
+                ", ano=" + getAno() +
+                ", preco=" + getPreco() +
+                ", quantidadePortas=" + quantidadePortas +
+                ", tipoCombustivel='" + tipoCombustivel + '\'' +
+                '}';
+        }
 }
