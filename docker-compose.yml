@@ -1,0 +1,49 @@
+services:
+  front:
+    container_name: front-gerenciador
+    build:
+      context: .
+      dockerfile: Dockerfile-front
+    ports:
+      - 5000:80
+    networks:
+      - rede-local
+
+  back:
+    container_name: back-gerenciador
+    build:
+      context: .
+      dockerfile: Dockerfile-back
+    depends_on:
+      - mysql
+    ports:
+      - 8080:8080
+    networks:
+      - rede-local
+
+  mysql:
+    image: mysql:latest
+    container_name: banco-gerenciador
+    restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "--host=localhost", "--user=root", "--password=senha"]
+      interval: 30s
+      retries: 3
+      timeout: 10s
+      start_period: 30s
+    environment:
+      MYSQL_ROOT_PASSWORD: senha
+      MYSQL_DATABASE: veiculos
+      MYSQL_USER: user
+      MYSQL_PASSWORD: mypassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data:/var/lib/mysql
+      - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
+    networks:
+      - rede-local
+    
+
+networks:
+  rede-local: {}
